@@ -52,9 +52,9 @@
                                 <div class="bg-gray-200 text-xs font-bold uppercase leading-none rounded-full text-center w-28 h-7 py-2 px-4">Open</div>
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
-                                    </svg>
+                                </svg>
 
-                                    <ul class="absolute w-27 font-semibold bg-white shadow-lg rounded-xl py-3" style="margin-left:120px;" >
+                                <ul class="absolute w-27 font-semibold bg-white shadow-lg rounded-xl py-3" style="margin-left:120px;">
                                     <li><a href="#" class="hover:bg-gray-100 block transition duration-150 ease-in px-5 py-3">Mark as spam</a></li>
                                     <li><a href="#" class="hover:bg-gray-100 block transition duration-150 ease-in px-5 py-3">delete Post</a></li>
                                 </ul>
@@ -77,7 +77,7 @@
 
 
             ///
-            
+
 
         </div>
 
