@@ -11,12 +11,12 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
+    <livewire:styles />
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="font-sans text-gray-900 text-sm">
+<body class="font-sans text-gray-900 text-sm  ">
     <header class="flex items-center justify-between px-8 py-4">
         <!-- <a href="">laracast logo</a> -->
         <a href="#">
@@ -119,7 +119,9 @@
             {{$slot}}
         </div>
     </main>
+
     </div>
 </body>
+<livewire:scripts />
 
 </html>
