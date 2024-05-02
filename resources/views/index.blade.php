@@ -18,7 +18,16 @@
     @foreach($ideas as $idea)
     <div class="ideas-container  space-y-6 my-6">
         <div class="idea-container  bg-white  bg-blue-200  rounded-xl flex">
-            <div class="border-r hover:shadow-md transition duration-150 ease-in cursor-pointer border-gray-100 px-5 py-8 flex shadow-2xl rounded-lg" style="margin-left:-530px;margin-top:80px; ">
+            <div
+            x-data
+            @click="
+            const clicked =$event.target
+            const target = clicked.tagName.toLowerCase()
+            const ignores=['button','svg','path','a']
+            if(! ignores.includes(target)){
+                clicked.closest('.idea-container').querySelector('.idea-link').click()
+            } "
+             class="idea-container border-r hover:shadow-md transition duration-150 ease-in cursor-pointer border-gray-100 px-5 py-8 flex shadow-2xl rounded-lg" style="margin-left:-530px;margin-top:80px;" >
                 <div>
                     <div>
                         <div class="font-semibold text-2xl">12</div>
