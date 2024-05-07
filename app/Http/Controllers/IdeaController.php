@@ -17,13 +17,16 @@ class IdeaController extends Controller
     public function index()
     {
         // return view('index',['ideas'=>Idea::where('id',6)->get()]);
-        return view('index',['ideas'=>Idea::SimplePaginate(5)]);
+        return view('index',['ideas'=>Idea::orderBy('id','desc')->SimplePaginate(5)]);
     }
     public function show(Idea $idea){
         // return 'hii';
         return view('idea',['idea'=>$idea]);
     }
-    
+    // public function ideaCreate(){
+    //     return view('layouts.app',['categories' => Category::all()]);
+    // }
+
 
     /**
      * Show the form for creating a new resource.

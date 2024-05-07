@@ -3,15 +3,19 @@
 use app\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IdeaController;
+use App\Models\Category;
 
 // Route::get('/', function () {
 //     return view('index');
 // });
 
-Route::get('/', [IdeaController::class, 'index']);
-
+Route::get('/', [IdeaController::class, 'index'])->name('index');
+// Route::get('/dashboard', [DashboardController::class,'render'])->middleware(['auth', 'verified'])->name('dashboard');
+//
 Route::get('/dashboard', function () {
+
     return view('dashboard');
+
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {

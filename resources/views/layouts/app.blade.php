@@ -74,6 +74,7 @@
 
                 </div>
                 @auth
+
                 <livewire:create-idea />
 
                 @else

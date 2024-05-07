@@ -1,22 +1,23 @@
 <div>
     {{-- The Master doesn't talk, he acts. --}}
 
-    <form action="#" method="POST" class="text-sm spacer-y-4 px-4 p-6">
+    <form action="#" wire:submit.prevent="CreateIdea" method="POST" class="text-sm spacer-y-4 px-4 p-10">
                     <div>
-                        <input type="text" class="w-full bg-gray-100  rounded-xl border-none placeholder-gray-900 px-4 p-2" placeholder="Your ideas">
+                        <input wire:model.defer="title" type="text" class="w-full bg-gray-100  rounded-xl border-none placeholder-gray-900 px-4 p-2" placeholder="Your ideas">
                         </input>
                     </div>
                     <div>
-                        <select name="category_add" id="category_add" class="w-full rounded-xl  bg-gray-100 mt-2 border-none px-4 py-2 form-select">
-
-                            <option selected value="Category One">Category </option>
-                            <option value="Category One">Category One</option>
-                            <option value="Category Two">Category Two</option>
-                            <option value="Category Three">Category Three</option>
+                        <select wire:model.defer="category" name="category_add" id="category_add" class="w-full rounded-xl  bg-gray-100 mt-2 border-none px-4 py-2 form-select">
+                            @foreach($categories as $category)
+                                <option  value="{{ $category->id }}">{{$category->name}}</option>
+                                <!-- <option value="Category One">Category One</option>
+                                <option value="Category Two">Category Two</option>
+                                <option value="Category Three">Category Three</option> -->
+                            @endforeach
 
                         </select>
                         <div>
-                            <textarea id="idea" name="idea" cols="30" row=""  class="w-full bg-gray-100  rounded-xl border-none placeholder-gray-900 px-4 p-2 mt-2" placeholder="Description"> </textarea>
+                            <textarea id="idea" wire:model.defer="description" name="idea" cols="30" row=""  class="w-full bg-gray-100  rounded-xl border-none placeholder-gray-900 px-4 p-2 mt-2" placeholder="Description"> </textarea>
                         </div>
                     </div>
                     <div class="flex items-center justify-between space-x-3">
@@ -34,7 +35,20 @@
                             <span>submit</span>
                         </button>
 
+
                     </div>
+                    <div>
+                        @if(session('success_message'))
+                        <div x-data="{isVisible:true}"
+                        x-init="setTimeout(()=>{isVisible = false},5000)"
+                        x-show.transition.duration.1000ms="isVisible"
+                        class="text-green mt-4">
+                            {{ session('success_message') }}
+                        </div>
+                        @endif
+                    </div>
+
+
 
                 </form>
 

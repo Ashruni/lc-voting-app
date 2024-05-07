@@ -1,14 +1,16 @@
 <x-app-layout>
     <div class="filters flex space-x-6">
+    @foreach($ideas as $idea)
         <div class="w-3/3" style="margin-left:-620px;">
             <select name="category" id="category" class="w-full rounded-xl border-none px-4 py-2 form-select">
-                <option selected value="Category One">Category </option>
-                <option value="Category One">Category One</option>
-                <option value="Category Two">Category Two</option>
-                <option value="Category Three">Category Three</option>
+
+            <option selected value="{{ $idea->category->id }}"> {{$idea->category->name}} </option>
+
 
             </select>
+
         </div>
+        @endforeach
 
 
 

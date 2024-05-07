@@ -44,7 +44,7 @@ export default defineConfig({
 
     plugins: [
         require('@tailwindcss/forms'),
-        require('@tailwindcss/line-clamp'),
+        // require('@tailwindcss/line-clamp'),
         // Other plugins...
       ],
 });
