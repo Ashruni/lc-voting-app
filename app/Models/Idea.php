@@ -26,6 +26,12 @@ class Idea extends Model
 
         return '<a href="/ideas/' . $this->id . '">Link to Idea</a>';
     }
+    public function category(){
+        return $this->belongsTo(Category::class);
+    }
+    public function idea(){
+        return $this->belongsTo(Idea::class);
+    }
 
 }
 

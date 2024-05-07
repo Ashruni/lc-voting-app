@@ -58,7 +58,7 @@
                         <div class="flex items-center justify-between mt-6">
                             <div class="flex items-center text-xs text-gray-400 font-semibold space-x-2">
                                 <div>{{$idea->created_at->diffForHumans()}}</div>
-                                <div>bull;</div>
+                                <div>{{$idea->category->name}}</div>
                                 <div>{{ $idea->user_id }}</div>
                                 <div>bull;</div>
                                 <div class="text-gray-900">3 comments</div>
@@ -73,22 +73,10 @@
                                     <li><a href="#" class="hover:bg-gray-100 block transition duration-150 ease-in px-5 py-3">Mark as spam</a></li>
                                     <li><a href="#" class="hover:bg-gray-100 block transition duration-150 ease-in px-5 py-3">delete Post</a></li>
                                 </ul>
-
-
                             </div>
-
-
                         </div>
-
-
                     </div>
-
                 </div>
-
-
-
-
-
             </div>
         </div>
         @endforeach
