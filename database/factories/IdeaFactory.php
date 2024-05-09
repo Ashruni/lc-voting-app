@@ -17,7 +17,7 @@ class IdeaFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id'=>User::factory(),
+            'user_id'=>$this->faker->numberBetween(1,20),
             'category_id'=> $this->faker->numberBetween(1,4),
             'title'=>ucwords($this->faker->words(4,true)),
             'description'=>$this->faker->paragraph(5)

@@ -5,19 +5,28 @@
                     <div>
                         <input wire:model.defer="title" type="text" class="w-full bg-gray-100  rounded-xl border-none placeholder-gray-900 px-4 p-2" placeholder="Your ideas">
                         </input>
+                        @error('title')
+                            <p class= "text-red text-xs mt-1">{{$message}}</p>
+                        @enderror
+
                     </div>
+
                     <div>
                         <select wire:model.defer="category" name="category_add" id="category_add" class="w-full rounded-xl  bg-gray-100 mt-2 border-none px-4 py-2 form-select">
                             @foreach($categories as $category)
                                 <option  value="{{ $category->id }}">{{$category->name}}</option>
-                                <!-- <option value="Category One">Category One</option>
-                                <option value="Category Two">Category Two</option>
-                                <option value="Category Three">Category Three</option> -->
+
                             @endforeach
+                            @error('category')
+                                <p class= "text-red text-xs mt-1">{{$message}}</p>
+                            @enderror
 
                         </select>
                         <div>
                             <textarea id="idea" wire:model.defer="description" name="idea" cols="30" row=""  class="w-full bg-gray-100  rounded-xl border-none placeholder-gray-900 px-4 p-2 mt-2" placeholder="Description"> </textarea>
+                            @error('description')
+                                 <p class= "text-red text-xs mt-1">{{$message}}</p>
+                            @enderror
                         </div>
                     </div>
                     <div class="flex items-center justify-between space-x-3">

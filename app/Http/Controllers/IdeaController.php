@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Idea;
+use App\Models\Vote;
 use App\Models\User;
 use App\Models\Category;
 use App\Http\Controllers\Controller;
@@ -21,7 +22,10 @@ class IdeaController extends Controller
     }
     public function show(Idea $idea){
         // return 'hii';
-        return view('idea',['idea'=>$idea]);
+        return view('idea',[
+            'idea'=>$idea,
+            'voteCount'=>$idea->votes()->count(),
+        ]);
     }
     // public function ideaCreate(){
     //     return view('layouts.app',['categories' => Category::all()]);

@@ -5,14 +5,26 @@ namespace App\Livewire;
 use Livewire\Component;
 use App\Models\Category;
 use App\Models\Idea;
+
 use Illuminate\Http\Response;
 class CreateIdea extends Component
 {
     public $title;
     public $description;
     public $category=1;
+
+    protected $rules=
+    [
+        'title'=>'required|min:4',
+        'category'=>'required|integer',
+        'description'=>'required|min:4',
+
+    ];
+
+
     public function CreateIdea(){
        if(auth()->check()){
+        $this->validate();
         Idea::create([
             'user_id' => auth()->id(),
             'category_id' => $this->category,

@@ -2,17 +2,23 @@
 
 namespace App\Models;
 use App\Models\User;
+use App\Models\Vote;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+
+
+
 
 class Idea extends Model
 {
     use HasFactory,Sluggable;
     protected $guarded=[];
-    public function user(){
-        $this->belongsTo(User::class);
+    public function user()
+    {
+    return $this->belongsTo(User::class);
     }
+
     public function sluggable(): array
     {
         return [
@@ -32,6 +38,11 @@ class Idea extends Model
     public function idea(){
         return $this->belongsTo(Idea::class);
     }
+    public function votes(){
+        return $this->belongsTo(User::class,'votes');
+    }
+
+
 
 }
 
